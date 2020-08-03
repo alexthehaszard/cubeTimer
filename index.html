@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cube Timer</title>
+    <script src="p5.js"></script>
+    <!-- <script src="p5.sound.js"></script> -->
+    <script type="text/javascript" src="stackmat.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <meta charset="utf-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+  </head>
+
+  <body>
+    <div id="scramble">
+      <p id="scrambleText" class="textStyle"></p>
+    </div>
+    <div id="timer">
+      <p id="timerText" class="textStyle"></p>
+    </div>
+    <div id="stats">
+      <button
+        id="left"
+        class="buttons btn btn-secondary"
+        onClick="moveStats(0)"
+      >
+        ←
+      </button>
+      <div
+        class="card text-white bg-secondary"
+        id="leftStats"
+        onClick="removeStats(1)"
+      >
+        <p id="leftType"></p>
+        <p id="leftTime"></p>
+        <p id="leftScramble"></p>
+      </div>
+      <div
+        class="card text-white bg-secondary"
+        id="rightStats"
+        onClick="removeStats(0)"
+      >
+        <p id="rightType"></p>
+        <p id="rightTime"></p>
+        <p id="rightScramble"></p>
+      </div>
+      <button
+        id="right"
+        class="buttons btn btn-secondary"
+        onClick="moveStats(1)"
+      >
+        →
+      </button>
+    </div>
+    <script src="stats.js"></script>
+    <script src="scramble.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
