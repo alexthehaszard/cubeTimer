@@ -150,30 +150,13 @@ function draw() {
     timerText.style.color = txtClr;
   }
 
-  if (times.length > 0) {
-    let splitSolveLeft = times[showSolve1].split("-");
-    if (
-      splitSolveLeft[1] != leftTime.innerHTML ||
-      splitSolveLeft[0] != leftType.innerHTML ||
-      splitSolveLeft[2] != leftScramble.innerHTML
-    ) {
-      leftTime.innerHTML = splitSolveLeft[1];
-      leftType.innerHTML = splitSolveLeft[0];
-      leftScramble.innerHTML = splitSolveLeft[2];
-    }
-  }
-  if (times.length > 1) {
-    let splitSolveRight = times[showSolve2].split("-");
-    if (
-      splitSolveRight[1] != rightTime.innerHTML ||
-      splitSolveRight[0] != rightType.innerHTML ||
-      splitSolveRight[2] != rightScramble.innerHTML
-    ) {
-      rightTime.innerHTML = splitSolveRight[1];
-      rightType.innerHTML = splitSolveRight[0];
-      rightScramble.innerHTML = splitSolveRight[2];
-    }
-  }
+  stats.updateTimes(
+    times,
+    showSolve1,
+    showSolve2,
+    [leftTime, leftType, leftScramble],
+    [rightTime, rightType, rightScramble]
+  );
 
   //when a new scramble is generated, show it.
   if (scrambleText.innerHTML != scram1) {
@@ -320,6 +303,13 @@ function removeStats(direction) {
   let op = stats.removeTime(times, showSolve1, showSolve2, direction);
   showSolve1 = op[0];
   showSolve2 = op[1];
+  stats.updateTimes(
+    times,
+    showSolve1,
+    showSolve2,
+    [leftTime, leftType, leftScramble],
+    [rightTime, rightType, rightScramble]
+  );
 }
 
 //check the time every time a packet is recieved
